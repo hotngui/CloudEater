@@ -26,7 +26,7 @@ If everything is not working on the device as expected there is a chance you may
 
 4. In a web browser, sign into your development account's <a href='https://developer.apple.com/icloud/cloudkit'>CloudKit dashboard</a> and navigate to the index tab for this app's container
 <p align=center>
-<img src='/Images/Screenshot2.png' width='250' border='0' alt='A screenshot of the CloudKit dashboard' />
+<img src='/Images/Screenshot2.png' width='750' border='0' alt='A screenshot of the CloudKit dashboard' />
 </p>
 
 5. Add a queryable index called recordName for the _recordID_ field
