@@ -16,7 +16,6 @@ struct MainView: View {
     @State private var sizeOfChunksInBytes: Double = ChunkGenerator.defaultSizeOfChunkInBytes
 
     @State private var dummyRefresher = false
-    @State private var isGeneratingFiles = false
     @State private var isDeletingFiles = false
     @State private var isBusy = false
     @State private var isShowingError = false
@@ -172,23 +171,19 @@ struct MainView: View {
     @ViewBuilder
     private func generateFilesButton() -> some View {
         Button("Generate Files", role: .none) {
-            isGeneratingFiles.toggle()
             isBusy.toggle()
             
             Task {
                 do {
                     try await generator.generate(numberOfChunks: numberOfChunks, sizeOfChunksInBytes: sizeOfChunksInBytes)
                     await countSize(3)
-                    isGeneratingFiles.toggle()
                     isBusy.toggle()
                 } catch {
                     errorMessage = error.localizedDescription
                     isBusy.toggle()
-                    isGeneratingFiles.toggle()
                     isShowingError.toggle()
                 }
             }
-            
         }
         .buttonStyle(.borderedProminent)
         .alert(isPresented: $isShowingError) {

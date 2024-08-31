@@ -14,12 +14,12 @@ final class CloudKitService {
     }
     
     private static let logger = Logger(
-        subsystem: "com.hotngui.CloudEater2",
+        subsystem: "com.hotngui.CloudEater",
         category: String(describing: CloudKitService.self)
     )
 
     var database: CKDatabase {
-        CKContainer(identifier: "iCloud.com.hotngui.CloudEater2").privateCloudDatabase
+        CKContainer(identifier: "iCloud.com.hotngui.CloudEater").privateCloudDatabase
     }
     
     ///
